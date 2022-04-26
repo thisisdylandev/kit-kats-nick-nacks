@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  buyPrice: 9.99
+  sellPrice: 9.99
+  shipPrice: 9.99
+  packed: false
+  shipped: false
+  buyer: MyString
+
+two:
+  name: MyString
+  buyPrice: 9.99
+  sellPrice: 9.99
+  shipPrice: 9.99
+  packed: false
+  shipped: false
+  buyer: MyString

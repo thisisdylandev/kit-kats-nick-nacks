@@ -1,0 +1,74 @@
+<%= form_with(model: item, class: "contents") do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+        <% item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="item-container">
+    <div class="m-3 d-flex flex-column">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="m-3 d-flex flex-column">
+      <%= form.label :category, 'Category' %>
+      <%= form.select :category, 
+        options_for_select(Item.categories, @item.category) %>
+      </div>
+
+    <div class="m-3 d-flex flex-column">
+      <%= form.label :buyPrice, 'Buy Price' %>
+      <%= form.text_field :buyPrice, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="m-3 d-flex flex-column">
+      <%= form.label :sellPrice, 'Sell Price' %>
+      <%= form.text_field :sellPrice, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="m-3 d-flex flex-column">
+      <%= form.label :shipPrice, 'Shipping Cost' %>
+      <%= form.text_field :shipPrice, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="m-3 d-flex flex-column">
+      <%= form.label :buyer %>
+      <%= form.text_field :buyer, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="m-3 d-flex flex-column">
+      <%= form.label :username %>
+      <%= form.text_field :username, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+    
+    <div class="m-3 d-flex flex-column">
+      <%= form.label :buyDate, 'Buy Date' %>
+      <%= form.date_field :buyDate, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+    
+    <div class="m-3 d-flex flex-column">
+      <%= form.label :sellDate, 'Sell Date' %>
+      <%= form.date_field :sellDate, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="m-3">
+      <%= form.label :packed %>
+      <%= form.check_box :packed, class: "block mt-2 h-5 w-5" %>
+    </div>
+
+    <div class="m-3">
+      <%= form.label :shipped %>
+      <%= form.check_box :shipped, class: "block mt-2 h-5 w-5" %>
+    </div>
+  </div>
+  <div class="inline">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

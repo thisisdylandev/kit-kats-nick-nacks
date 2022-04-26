@@ -1,0 +1,67 @@
+<div id="<%= dom_id item %>" class="item-container">
+  <p class="">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= item.name %>
+  </p>
+
+  <p class="">
+    <strong class="block font-medium mb-1">Category:</strong>
+    <%= item.category %>
+  </p>
+
+  <p class="">
+    <strong class="block font-medium mb-1">Buy Price:</strong>
+    <%= number_to_currency(item.buyPrice) %>
+  </p>
+
+  <p class="">
+    <strong class="block font-medium mb-1">Sell Price:</strong>
+    <%= number_to_currency(item.sellPrice) %>
+  </p>
+
+  <p class="">
+    <strong class="block font-medium mb-1">Profit:</strong>
+    <%= number_to_currency(item.sellPrice - item.buyPrice) %>
+  </p>
+
+  <p class="">
+    <strong class="block font-medium mb-1">Ship Price:</strong>
+    <%= number_to_currency(item.shipPrice) %>
+  </p>
+
+  <div>
+    <strong class="block font-medium mb-1">Packed:</strong>
+    <%= check_box_tag 'shipped', 'item shipped', item.packed, class: "form-check-input", disabled: true %>
+  </div>
+
+  <div>
+    <strong class="block font-medium mb-1">Shipped:</strong>
+    <%= check_box_tag 'shipped', 'item shipped', item.shipped, class: "form-check-input", disabled: true %>
+  </div>
+
+  <p class="">
+    <strong class="block font-medium mb-1">Buyer:</strong>
+    <%= item.buyer %>
+  </p>
+
+  <p class="">
+    <strong class="block font-medium mb-1">Username:</strong>
+    <%= item.username %>
+  </p>
+
+  <p class="">
+    <strong class="block font-medium mb-1">Buy Date:</strong>
+    <%= item.buyDate %>
+  </p>
+
+  <p class="">
+    <strong class="block font-medium mb-1">Sell Date:</strong>
+    <%= item.sellDate %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this item", item, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this item', edit_item_path(item), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

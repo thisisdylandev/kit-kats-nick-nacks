@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # secure by default
+  before_action :authenticate_user!, unless: :devise_controller?
+
   protected
 
     def configure_permitted_parameters

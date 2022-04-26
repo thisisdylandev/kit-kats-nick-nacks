@@ -1,3 +1,47 @@
+// Begin Theme Variables
+
+$primary: #6f42c1;
+$secondary: #e0be43;
+$success: #9ED670;
+$danger: #ff006e;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "danger": $danger
+);
+
+// End Theme Variables
+
+//Begin Imports
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import "jumpstart/announcements";
+// End Imports
+
+// Begin custom CSS
+.body-container {
+  max-width: 90vw;
+}
+
+.item-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@include media-breakpoint-up(sm) {
+  .item-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .body-container {
+    max-width: 75vw;
+  }
+
+  .item-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
