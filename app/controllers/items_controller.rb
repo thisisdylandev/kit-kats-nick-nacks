@@ -4,6 +4,15 @@ class ItemsController < ApplicationController
   # GET /items or /items.json
   def index
     @items = Item.where(user_id: current_user.id)
+    @pagy, @items = pagy(@items, items: 10)
+
+    @items = @items.sort_by { |item| [item.category, item.name] }
+
+
+    @profit = 0
+    @items.each do |item|
+      @profit += (item.sellPrice - item.buyPrice)
+    end
   end
 
   # GET /items/1 or /items/1.json
@@ -56,7 +65,7 @@ class ItemsController < ApplicationController
     @item.destroy
 
     respond_to do |format|
-      format.html { redirect_to items_url, notice: "Item was successfully destroyed." }
+      format.html { redirect_to items_url, notice: "Item was successfully deleted." }
       format.json { head :no_content }
     end
   end

@@ -1,12 +1,17 @@
 <div class="w-full">
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Inventory</h1>
-    <%= link_to 'New item', new_item_path, class: "btn btn-secondary" %>
+  <div class="d-flex justify-between items-center">
+    <div>
+      <h1 class="font-bold text-4xl flex-grow-1">Inventory</h1>
+      <%= link_to 'New item', new_item_path, class: "btn btn-secondary" %>
+    </div>
+    <h2 class="font-bold text-2xl mt-1 ms-auto">Total Profit: <%= @profit %></h2>
   </div>
 
   <div id="items" class="min-w-full mt-4">
     <% @items.each do |item| %>
-      <%= link_to item.name, item, class: "rounded-lg py-3 px-5 btn btn-primary font-medium" %>
+      <%= link_to item.name, item, class: "rounded-lg py-3 px-5 btn btn-primary font-medium mb-3" %>
     <% end %>
   </div>
 </div>
+
+<%== pagy_nav(@pagy) %>

@@ -87,4 +87,4 @@ gem "sitemap_generator", "~> 6.1"
 gem "whenever", require: false
 gem "responders", github: "heartcombo/responders", branch: "main"
 
-gem "tailwindcss-rails", "~> 2.0"
+gem "pagy"
